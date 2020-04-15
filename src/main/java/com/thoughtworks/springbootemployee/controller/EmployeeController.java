@@ -43,16 +43,16 @@ public class EmployeeController {
         return employeeService.getEmployeesByGender(gender);
     }
 
-//    @PostMapping
-//    public void addEmployee(@RequestParam Employee employee) {
-//
-//    }
+    @PostMapping(path = "/addEmployee", consumes = "application/json", produces = "application/json")
+    public void addEmployee(@RequestBody Employee employee) {
+        employeeService.addEmployee(employee);
+    }
 
-//    @DeleteMapping
-//    public void deleteEmployee(@RequestParam(name = "id") int id) {
-//
-//    }
-//
+    @DeleteMapping(path = "/deleteEmployee")
+    public void deleteEmployee(@RequestParam int id) {
+        employeeService.deleteEmployee(id);
+    }
+
 //    @PutMapping
 //    public void changeEmployeeName(@RequestParam(name = "id") int id, @RequestParam(name = "name") String name) {
 //

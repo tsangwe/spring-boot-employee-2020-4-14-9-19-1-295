@@ -30,4 +30,12 @@ public class EmployeeService {
     public List<Employee> getEmployeesByGender(String gender) {
         return employees.stream().filter(employee -> employee.getGender().equals(gender)).collect(Collectors.toList());
     }
+
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
+    }
+
+    public void deleteEmployee(int id) {
+        employees.removeIf(employee -> employee.getId() == id);
+    }
 }
