@@ -53,19 +53,19 @@ public class EmployeeController {
         employeeService.deleteEmployee(id);
     }
 
-//    @PutMapping
-//    public void changeEmployeeName(@RequestParam(name = "id") int id, @RequestParam(name = "name") String name) {
-//
-//    }
-//
-//    @PutMapping
-//    public void changeEmployeeAge(@RequestParam(name = "id") int id, @RequestParam(name = "age") String age) {
-//
-//    }
-//
-//    @PutMapping
-//    public void changeEmployeeGender(@RequestParam(name = "id") int id, @RequestParam(name = "gender") String gender) {
-//
-//    }
+    @PutMapping(path = "/changeEmployeeName")
+    public void changeEmployeeName(@RequestParam(name = "id") int id, @RequestParam(name = "name") String name) {
+        employeeService.changeEmployeeName(id, name);
+    }
+
+    @PutMapping(path = "/changeEmployeeAge")
+    public void changeEmployeeAge(@RequestParam(name = "id") int id, @RequestParam(name = "age") int age) {
+        employeeService.changeEmployeeAge(id, age);
+    }
+
+    @PutMapping(path = "/changeEmployeeGender")
+    public void changeEmployeeGender(@RequestParam(name = "id") int id, @RequestParam(name = "gender") String gender) {
+        employeeService.changeEmployeeGender(id, gender);
+    }
 
 }

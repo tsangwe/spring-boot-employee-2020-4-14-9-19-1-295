@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,5 +38,17 @@ public class EmployeeService {
 
     public void deleteEmployee(int id) {
         employees.removeIf(employee -> employee.getId() == id);
+    }
+
+    public void changeEmployeeName(int id, String name) {
+        Objects.requireNonNull(employees.stream().filter(employee -> employee.getId() == id).findFirst().orElse(null)).setName(name);
+    }
+
+    public void changeEmployeeAge(int id, int age) {
+        Objects.requireNonNull(employees.stream().filter(employee -> employee.getId() == id).findFirst().orElse(null)).setAge(age);
+    }
+
+    public void changeEmployeeGender(int id, String gender) {
+        Objects.requireNonNull(employees.stream().filter(employee -> employee.getId() == id).findFirst().orElse(null)).setGender(gender);
     }
 }
